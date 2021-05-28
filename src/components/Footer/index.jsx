@@ -1,6 +1,6 @@
 import classes from "src/components/Footer/Footer.module.css";
 
-export function Footer() {
+export const Footer = () => {
   return (
     <footer className={classes.footer}>
       <a
@@ -13,4 +13,4 @@ export function Footer() {
       </a>
     </footer>
   );
-}
+};
