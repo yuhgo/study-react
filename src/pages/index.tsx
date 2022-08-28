@@ -6,7 +6,7 @@ import { Main } from "src/components/Main";
 import { NextPage } from "next";
 import React from "react";
 
-type AboutProps = {
+type IndexProps = {
   handleClick: () => void;
   handleDisplay: () => void;
   isShow: boolean;
@@ -17,7 +17,7 @@ type AboutProps = {
   handleAdd: () => void;
 };
 
-const About: NextPage<AboutProps> = (props) => {
+const Index: NextPage<IndexProps> = (props) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -43,4 +43,4 @@ const About: NextPage<AboutProps> = (props) => {
   );
 };
 
-export default About;
+export default Index;
