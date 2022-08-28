@@ -1,14 +1,6 @@
 import useSWR from "swr";
 import { Post } from "../components/posts/type";
-
-const fetcher = async (url: string) => {
-  const res = await fetch(url);
-
-  if (!res.ok) {
-    throw new Error("エラーが発生したため、データの取得に失敗しました。");
-  }
-  return await res.json();
-};
+import { fetcher } from "../utils/fetcher";
 
 export const usePosts = () => {
   const url = "https://jsonplaceholder.typicode.com/posts";
