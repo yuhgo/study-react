@@ -1,12 +1,11 @@
 import Head from "next/head";
-import styles from "src/styles/Home.module.css";
 import { Header } from "src/components/Header";
 import { NextPage } from "next";
 import React from "react";
 
 const Index: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Index Page</title>
       </Head>
