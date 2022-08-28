@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "src/styles/Home.module.css";
 import { Header } from "src/components/Header";
-import { Posts } from "../../components/posts";
+import { Posts as PostsComponent } from "../../components/posts";
 
 type Posts = {
   userId: number;
@@ -10,16 +10,16 @@ type Posts = {
   body: string;
 };
 
-const Home = () => {
+const Posts = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Index Page</title>
+        <title>Posts Page</title>
       </Head>
       <Header />
-      <Posts />
+      <PostsComponent />
     </div>
   );
 };
 
-export default Home;
+export default Posts;
