@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "src/styles/Home.module.css";
 import { Header } from "src/components/Header";
-import { Posts } from "../components/posts";
+import { Posts } from "../../components/posts";
 
 type Posts = {
   userId: number;

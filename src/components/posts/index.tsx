@@ -1,9 +1,11 @@
 import { usePosts } from "../../hooks/usePosts";
 import { Post } from "./type";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export const Posts = () => {
   const { data, error, isLoading, isEmpty } = usePosts();
+  useEffect(() => {}, [data]);
 
   if (isLoading) {
     return <div>ローディング中</div>;
@@ -20,7 +22,7 @@ export const Posts = () => {
       {data.map((post: Post) => {
         return (
           <li key={post.id}>
-            <Link href={`/post/${post.id}`}>{post.title}</Link>
+            <Link href={`/posts/${post.id}`}>{post.title}</Link>
           </li>
         );
       })}
