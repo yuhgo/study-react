@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { Post } from "../components/posts/type";
+import { Post } from "../type/type";
 import { fetcher } from "../utils/fetcher";
 
 export const usePosts = () => {

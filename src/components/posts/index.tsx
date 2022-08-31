@@ -1,5 +1,5 @@
 import { usePosts } from "../../hooks/usePosts";
-import { Post } from "./type";
+import { Post } from "../../type/type";
 import Link from "next/link";
 import { useEffect } from "react";
 
