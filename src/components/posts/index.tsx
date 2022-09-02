@@ -1,11 +1,9 @@
-import { usePosts } from "../../hooks/usePosts";
-import { Post } from "../../type/type";
+import type { Post } from "../../type/type";
 import Link from "next/link";
-import { useEffect } from "react";
+import { usePosts } from "../../hooks/useFetchArray";
 
 export const Posts = () => {
   const { data, error, isLoading, isEmpty } = usePosts();
-  useEffect(() => {}, [data]);
 
   if (isLoading) {
     return <div>ローディング中</div>;
