@@ -2,7 +2,7 @@ import useSWR from "swr";
 import type { Comment, Post, User } from "../type/type";
 import { fetcher } from "../utils/fetcher";
 
-export const useFetchArray = <T, U extends string>(url: U) => {
+export const useFetchArray = <T, U extends string | null>(url: U) => {
   const { data, error } = useSWR<T[], Error>(url, fetcher);
 
   return {
@@ -28,4 +28,10 @@ export const usePosts = () => {
 export const useUsers = () => {
   const url = `${API_URL}/users`;
   return useFetchArray<User, string>(url);
+};
+
+export const useCommentsByPostsId = (id: number) => {
+  return useFetchArray<Comment, string | null>(
+    id ? `${API_URL}/comments?postId=${id}` : null
+  );
 };
