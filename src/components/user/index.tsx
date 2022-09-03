@@ -24,7 +24,6 @@ export const UserComponent = () => {
       </ul>
       <h2>投稿</h2>
       {data ? <PostsByUserId id={data.id} /> : <p>データがありません</p>}
-      <h2>コメント</h2>
     </div>
   );
 };
