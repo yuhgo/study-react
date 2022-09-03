@@ -22,5 +22,5 @@ export const UserByUserId: FC<UserByPostIdProps> = (props) => {
     return <div>{error.message}</div>;
   }
 
-  return <div>Created by{data?.name}</div>;
+  return <div className="text-lg">Created by{data?.name}</div>;
 };

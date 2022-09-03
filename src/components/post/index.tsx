@@ -21,10 +21,13 @@ export const Post = () => {
       <Head>
         <title>{data?.title}</title>
       </Head>
-      <h1>{data?.title}</h1>
-      <p>{data?.body}</p>
       {data ? <UserByUserId id={data.userId} /> : null}
-      {data ? <CommentsByPostId id={data.id} /> : null}
+      <h1 className="text-3xl font-bold">{data?.title}</h1>
+      <p className="mt-2 text-xl text-gray-900">{data?.body}</p>
+      <h2 className="mt-10 text-xl font-bold">コメント一覧</h2>
+      <div className="mt-2">
+        {data ? <CommentsByPostId id={data.id} /> : null}
+      </div>
     </div>
   );
 };
