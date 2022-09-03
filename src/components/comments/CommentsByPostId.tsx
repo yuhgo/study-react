@@ -1,4 +1,4 @@
-import { useCommentsByPostsId } from "../../hooks/useFetchArray";
+import { useCommentsByPostId } from "../../hooks/useFetchArray";
 import { Comment } from "../../type/type";
 import Link from "next/link";
 import { FC } from "react";
@@ -8,7 +8,7 @@ type CommentsByPostIdProps = { id: number };
 export const CommentsByPostId: FC<CommentsByPostIdProps> = (props) => {
   const { id } = props;
 
-  const { data, error, isLoading, isEmpty } = useCommentsByPostsId(id);
+  const { data, error, isLoading, isEmpty } = useCommentsByPostId(id);
 
   if (isLoading) {
     return <p>Loading...</p>;
