@@ -24,7 +24,9 @@ export const UserComponent = () => {
         <li>勤務先：{data?.company.name}</li>
       </ul>
       <h2 className="mt-10 text-xl font-bold">投稿</h2>
-      {data ? <PostsByUserId id={data.id} /> : <p>データがありません</p>}
+      <div className="mt-2">
+        {data ? <PostsByUserId id={data.id} /> : <p>データがありません</p>}
+      </div>
     </div>
   );
 };
