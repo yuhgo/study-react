@@ -1,9 +1,8 @@
 import useSWR from "swr";
 import type { Comment, Post, User } from "../type/type";
-import { fetcher } from "../utils/fetcher";
 
 export const useFetchArray = <T, U extends string | null>(url: U) => {
-  const { data, error } = useSWR<T[], Error>(url, fetcher);
+  const { data, error } = useSWR<T[], Error>(url);
 
   return {
     data: data ? data : [],

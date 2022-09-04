@@ -1,6 +1,5 @@
 import useSWR from "swr";
 import { User } from "../../type/type";
-import { fetcher } from "../../utils/fetcher";
 import { FC } from "react";
 
 type UserByPostIdProps = {
@@ -12,7 +11,7 @@ export const UserByUserId: FC<UserByPostIdProps> = (props) => {
 
   const userUrl = `https://jsonplaceholder.typicode.com/users/${id}`;
 
-  const { data, error } = useSWR<User, Error>(userUrl, fetcher);
+  const { data, error } = useSWR<User, Error>(userUrl);
 
   if (!data && !error) {
     return <div>ローディング中</div>;

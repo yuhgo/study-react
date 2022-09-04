@@ -1,6 +1,5 @@
 import useSWR from "swr";
 import { User } from "../type/type";
-import { fetcher } from "../utils/fetcher";
 import { useRouter } from "next/router";
 
 export const useUser = () => {
@@ -8,7 +7,7 @@ export const useUser = () => {
   const url = router.query.id
     ? `https://jsonplaceholder.typicode.com/users/${router.query.id}`
     : "null";
-  const { data, error } = useSWR<User, Error>(url, fetcher);
+  const { data, error } = useSWR<User, Error>(url);
 
   return {
     data: data ? data : null,
