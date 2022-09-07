@@ -1,8 +1,8 @@
-import useSWR from "swr";
+import useSWRImmutable from "swr/immutable";
 import type { Comment, Post, User } from "../type/type";
 
 export const useFetchArray = <T, U extends string | null>(url: U) => {
-  const { data, error } = useSWR<T[], Error>(url);
+  const { data, error } = useSWRImmutable<T[], Error>(url);
 
   return {
     data: data ? data : [],

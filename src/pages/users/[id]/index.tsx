@@ -25,14 +25,22 @@ export default UserId;
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { id } = ctx.query;
-  const API_URL = `https://jsonplaceholder.typicode.com/users/${id}`;
-  const res = await fetch(API_URL);
-  const userData: User = await res.json();
+
+  // ユーザー情報の取得
+  const USER_API_URL = `https://jsonplaceholder.typicode.com/users/${id}`;
+  const user = await fetch(USER_API_URL);
+  const userData: User = await user.json();
+
+  // ユーザーの投稿の取得
+  const POSTS_API_URL = `https://jsonplaceholder.typicode.com/posts?userId=${userData.id}`;
+  const posts = await fetch(POSTS_API_URL);
+  const postsData: User = await posts.json();
 
   return {
     props: {
       fallback: {
-        [API_URL]: userData,
+        [USER_API_URL]: userData,
+        [POSTS_API_URL]: postsData,
       },
     },
   };
