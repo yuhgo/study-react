@@ -1,9 +1,11 @@
 import type { Post } from "../../type/type";
 import Link from "next/link";
-import { usePosts } from "../../hooks/useFetchArray";
+import { useFetchArray } from "../../hooks/useFetchArray";
+import { API_URL } from "../../utils/const";
 
-export const Posts = () => {
-  const { data, error, isLoading, isEmpty } = usePosts();
+export const PostList = () => {
+  const url = `${API_URL}/posts`;
+  const { data, error, isLoading, isEmpty } = useFetchArray<Post, string>(url);
 
   if (isLoading) {
     return <div>ローディング中</div>;

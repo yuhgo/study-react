@@ -14,10 +14,10 @@ export const useFetchArray = <T, U extends string | null>(url: U) => {
 };
 
 // posts
-export const usePosts = () => {
-  const url = `${API_URL}/posts`;
-  return useFetchArray<Post, string>(url);
-};
+// export const usePosts = () => {
+//   const url = `${API_URL}/posts`;
+//   return useFetchArray<Post, string>(url);
+// };
 export const usePostsByUserId = (id: number) => {
   return useFetchArray<Post, string | null>(
     id ? `${API_URL}/posts?userId=${id}` : null
