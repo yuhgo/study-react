@@ -31,7 +31,7 @@ const CommentsId = (props: SGProps) => {
 export default CommentsId;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const COMMENTS_API_URL = `https://jsonplaceholder.typicode.com/comments`;
+  const COMMENTS_API_URL = `https://jsonplaceholder.typicode.com/comments?_limit=10`;
   const comments = await fetch(COMMENTS_API_URL);
   const commentsData: Comment[] = await comments.json();
   const paths = commentsData.map((comment) => ({
@@ -40,7 +40,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 };
 
@@ -49,7 +49,15 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const COMMENT_API_URL = `https://jsonplaceholder.typicode.com/comments/${id}`;
   const comment = await fetch(COMMENT_API_URL);
+
+  if (!comment.ok) {
+    return {
+      notFound: true,
+    };
+  }
+
   const commentData: Comment = await comment.json();
+  console.log(`comment/${id}がSG化されました`);
 
   return {
     props: {
