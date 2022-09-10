@@ -4,6 +4,7 @@ import { UsersComponent } from "../../components/users";
 import { User } from "../../type/type";
 import { GetServerSideProps } from "next";
 import { SWRConfig } from "swr";
+import { API_URL } from "../../utils/const";
 
 type SSRProps = {
   fallback: {
@@ -30,7 +31,7 @@ const Users = (props: SSRProps) => {
 export default Users;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const USERS_API_URL = `https://jsonplaceholder.typicode.com/users`;
+  const USERS_API_URL = `${API_URL}/users`;
   const users = await fetch(USERS_API_URL);
   const usersData: User[] = await users.json();
 

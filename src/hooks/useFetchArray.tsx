@@ -1,5 +1,6 @@
 import useSWRImmutable from "swr/immutable";
 import type { Comment, Post, User } from "../type/type";
+import { API_URL } from "../utils/const";
 
 export const useFetchArray = <T, U extends string | null>(url: U) => {
   const { data, error } = useSWRImmutable<T[], Error>(url);
@@ -11,8 +12,6 @@ export const useFetchArray = <T, U extends string | null>(url: U) => {
     isEmpty: data && data.length === 0,
   };
 };
-
-const API_URL = "https://jsonplaceholder.typicode.com";
 
 // posts
 export const usePosts = () => {

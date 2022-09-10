@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { User } from "../../type/type";
 import { FC } from "react";
+import { API_URL } from "../../utils/const";
 
 type UserByPostIdProps = {
   id: number;
@@ -9,7 +10,7 @@ type UserByPostIdProps = {
 export const UserByUserId: FC<UserByPostIdProps> = (props) => {
   const { id } = props;
 
-  const userUrl = `https://jsonplaceholder.typicode.com/users/${id}`;
+  const userUrl = `${API_URL}/users/${id}`;
 
   const { data, error } = useSWR<User, Error>(userUrl);
 

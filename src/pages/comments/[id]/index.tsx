@@ -4,6 +4,7 @@ import { SWRConfig } from "swr";
 import { ParsedUrlQuery } from "querystring";
 import { CommentComponent } from "../../../components/comment";
 import { Comment } from "../../../type/type";
+import { API_URL } from "../../../utils/const";
 
 type SGProps = {
   fallback: {
@@ -31,7 +32,7 @@ const CommentsId = (props: SGProps) => {
 export default CommentsId;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const COMMENTS_API_URL = `https://jsonplaceholder.typicode.com/comments?_limit=10`;
+  const COMMENTS_API_URL = `${API_URL}/comments?_limit=10`;
   const comments = await fetch(COMMENTS_API_URL);
   const commentsData: Comment[] = await comments.json();
   const paths = commentsData.map((comment) => ({
@@ -47,7 +48,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { id } = ctx.params as Params;
 
-  const COMMENT_API_URL = `https://jsonplaceholder.typicode.com/comments/${id}`;
+  const COMMENT_API_URL = `${API_URL}/comments/${id}`;
   const comment = await fetch(COMMENT_API_URL);
 
   if (!comment.ok) {

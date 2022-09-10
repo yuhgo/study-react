@@ -4,6 +4,7 @@ import { CommentsComponent } from "../../components/comments";
 import { GetStaticProps } from "next";
 import { Comment } from "../../type/type";
 import { SWRConfig } from "swr";
+import { API_URL } from "../../utils/const";
 
 type SGProps = {
   fallback: {
@@ -30,7 +31,7 @@ const Comments = (props: SGProps) => {
 export default Comments;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const COMMENTS_API_URL = `https://jsonplaceholder.typicode.com/comments`;
+  const COMMENTS_API_URL = `${API_URL}/comments`;
   const comments = await fetch(COMMENTS_API_URL);
   const commentsData: Comment[] = await comments.json();
 
