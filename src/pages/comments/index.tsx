@@ -1,6 +1,5 @@
 import Head from "next/head";
-import { Header } from "src/components/Header";
-import { CommentsComponent } from "../../components/comments";
+import { CommentList } from "../../components/comment/CommentList";
 import { GetStaticProps } from "next";
 import { Comment } from "../../type/type";
 import { SWRConfig } from "swr";
@@ -21,8 +20,7 @@ const Comments = (props: SGProps) => {
         <title>Comments Page</title>
       </Head>
       <SWRConfig value={{ fallback }}>
-        <Header />
-        <CommentsComponent />
+        <CommentList />
       </SWRConfig>
     </div>
   );

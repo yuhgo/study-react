@@ -1,8 +1,15 @@
-import { useUser } from "../../hooks/useUser";
 import { PostListByUserId } from "../post/PostListByUserId";
+import { useFetch } from "../../hooks/useFetch";
+import { API_URL } from "../../utils/const";
+import { useRouter } from "next/router";
+import { User } from "../../type/type";
 
-export const UserComponent = () => {
-  const { data, error, isLoading } = useUser();
+export const UserDetail = () => {
+  const router = useRouter();
+
+  const { data, error, isLoading } = useFetch<User, string | null>(
+    router.query.id ? `${API_URL}/users/${router.query.id}` : null
+  );
 
   if (isLoading) {
     return <div>Loading...</div>;

@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { Header } from "src/components/Header";
 import { PostList } from "../../components/post/PostList";
 
 const Posts = () => {
@@ -8,7 +7,6 @@ const Posts = () => {
       <Head>
         <title>Posts Page</title>
       </Head>
-      <Header />
       <PostList />
     </div>
   );

@@ -1,6 +1,5 @@
 import Head from "next/head";
-import { Header } from "src/components/Header";
-import { UsersComponent } from "../../components/users";
+import { UserList } from "../../components/user/UserList";
 import { User } from "../../type/type";
 import { GetServerSideProps } from "next";
 import { SWRConfig } from "swr";
@@ -21,8 +20,7 @@ const Users = (props: SSRProps) => {
         <title>Users Page</title>
       </Head>
       <SWRConfig value={{ fallback }}>
-        <Header />
-        <UsersComponent />
+        <UserList />
       </SWRConfig>
     </div>
   );

@@ -1,8 +1,7 @@
-import { Header } from "src/components/Header";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { SWRConfig } from "swr";
 import { ParsedUrlQuery } from "querystring";
-import { CommentComponent } from "../../../components/comment";
+import { CommentDetail } from "../../../components/comment/CommentDetail";
 import { Comment } from "../../../type/type";
 import { API_URL } from "../../../utils/const";
 
@@ -22,8 +21,7 @@ const CommentsId = (props: SGProps) => {
   return (
     <div>
       <SWRConfig value={{ fallback }}>
-        <Header />
-        <CommentComponent />
+        <CommentDetail />
       </SWRConfig>
     </div>
   );

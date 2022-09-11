@@ -1,7 +1,7 @@
 import "src/styles/globals.css";
 import Head from "next/head";
 import { AppProps } from "next/app";
-import { Layout } from "../components/Layout";
+import { AppLayout } from "../layouts/AppLayout";
 import { SWRConfig } from "swr";
 import { fetcher } from "../utils/fetcher";
 
@@ -12,9 +12,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SWRConfig value={{ fetcher }}>
-        <Layout>
+        <AppLayout>
           <Component {...pageProps} />
-        </Layout>
+        </AppLayout>
       </SWRConfig>
     </>
   );

@@ -1,20 +1,20 @@
-import useSWR from "swr";
 import { User } from "../../type/type";
 import { FC } from "react";
 import { API_URL } from "../../utils/const";
+import { useFetch } from "../../hooks/useFetch";
 
 type UserByPostIdProps = {
   id: number;
 };
 
-export const UserByUserId: FC<UserByPostIdProps> = (props) => {
+export const UserNameByUserId: FC<UserByPostIdProps> = (props) => {
   const { id } = props;
 
   const userUrl = `${API_URL}/users/${id}`;
 
-  const { data, error } = useSWR<User, Error>(userUrl);
+  const { data, error, isLoading } = useFetch<User, string | null>(userUrl);
 
-  if (!data && !error) {
+  if (isLoading) {
     return <div>ローディング中</div>;
   }
 

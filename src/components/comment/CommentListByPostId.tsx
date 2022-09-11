@@ -1,14 +1,19 @@
-import { useCommentsByPostId } from "../../hooks/useFetchArray";
+import { useFetchArray } from "../../hooks/useFetchArray";
 import { Comment } from "../../type/type";
 import Link from "next/link";
 import { FC } from "react";
+import { API_URL } from "../../utils/const";
 
 type CommentsByPostIdProps = { id: number };
 
-export const CommentsByPostId: FC<CommentsByPostIdProps> = (props) => {
+export const CommentListByPostId: FC<CommentsByPostIdProps> = (props) => {
   const { id } = props;
 
-  const { data, error, isLoading, isEmpty } = useCommentsByPostId(id);
+  const url = `${API_URL}/posts/${id}/comments`;
+  const { data, error, isLoading, isEmpty } = useFetchArray<
+    Comment,
+    string | null
+  >(id ? url : null);
 
   if (isLoading) {
     return <p>Loading...</p>;

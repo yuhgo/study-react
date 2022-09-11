@@ -1,8 +1,7 @@
 import useSWRImmutable from "swr/immutable";
-import { Post } from "../type/type";
 
-export const useFetch = <U extends string | null>(url: U) => {
-  const { data, error } = useSWRImmutable<Post, Error>(url);
+export const useFetch = <T, U extends string | null>(url: U) => {
+  const { data, error } = useSWRImmutable<T, Error>(url);
 
   return {
     data: data ? data : null,
