@@ -1,12 +1,15 @@
 import Head from "next/head";
 import { CommentsByPostId } from "../comments/CommentsByPostId";
 import { UserByUserId } from "../user/UserByUserId";
-import { usePost } from "../../hooks/usePost";
 import { useRouter } from "next/router";
+import { useFetch } from "../../hooks/useFetch";
+import { API_URL } from "../../utils/const";
 
-export const Post = () => {
+export const PostDetail = () => {
   const router = useRouter();
-  const { data, error, isLoading } = usePost(router.query.id);
+  const { data, error, isLoading } = useFetch(
+    router.query.id ? `${API_URL}/posts/${router.query.id}` : null
+  );
 
   if (isLoading) {
     return <div>ローディング中</div>;

@@ -1,16 +1,21 @@
 import type { Post } from "../../type/type";
 import Link from "next/link";
-import { usePostsByUserId } from "../../hooks/useFetchArray";
+import { useFetchArray } from "../../hooks/useFetchArray";
 import { FC } from "react";
+import { API_URL } from "../../utils/const";
 
-type PostsByUserIdProps = {
+type PostListByUserIdProps = {
   id: number;
 };
 
-export const PostsByUserId: FC<PostsByUserIdProps> = (props) => {
+export const PostListByUserId: FC<PostListByUserIdProps> = (props) => {
   const { id } = props;
 
-  const { data, error, isLoading, isEmpty } = usePostsByUserId(id);
+  const url = `${API_URL}/users/${id}/posts`;
+  const { data, error, isLoading, isEmpty } = useFetchArray<
+    Post,
+    string | null
+  >(id ? url : null);
 
   if (isLoading) {
     return <div>ローディング中</div>;

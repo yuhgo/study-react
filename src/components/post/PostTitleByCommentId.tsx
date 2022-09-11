@@ -1,15 +1,18 @@
-import { usePost } from "../../hooks/usePost";
 import { FC } from "react";
 import Link from "next/link";
+import { useFetch } from "../../hooks/useFetch";
+import { API_URL } from "../../utils/const";
 
 type PostByCommentIdProps = {
   id: string;
 };
 
-export const PostByCommentId: FC<PostByCommentIdProps> = (props) => {
+export const PostTitleByCommentId: FC<PostByCommentIdProps> = (props) => {
   const { id } = props;
 
-  const { data, error, isLoading } = usePost(id);
+  const { data, error, isLoading } = useFetch(
+    id ? `${API_URL}/posts/${id}` : null
+  );
 
   if (isLoading) {
     return <div>ローディング中</div>;

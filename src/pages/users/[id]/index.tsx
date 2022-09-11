@@ -33,7 +33,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const userData: User = await user.json();
 
   // ユーザーの投稿の取得
-  const POSTS_API_URL = `${API_URL}/posts?userId=${userData.id}`;
+  const POSTS_API_URL = `${API_URL}/users/${userData.id}/posts`;
   const posts = await fetch(POSTS_API_URL);
   const postsData: User = await posts.json();
 

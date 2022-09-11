@@ -1,5 +1,5 @@
 import { useUser } from "../../hooks/useUser";
-import { PostsByUserId } from "../posts/PostsByUserId";
+import { PostListByUserId } from "../post/PostListByUserId";
 
 export const UserComponent = () => {
   const { data, error, isLoading } = useUser();
@@ -25,7 +25,7 @@ export const UserComponent = () => {
       </ul>
       <h2 className="mt-10 text-xl font-bold">投稿</h2>
       <div className="mt-2">
-        {data ? <PostsByUserId id={data.id} /> : <p>データがありません</p>}
+        {data ? <PostListByUserId id={data.id} /> : <p>データがありません</p>}
       </div>
     </div>
   );

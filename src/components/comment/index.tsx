@@ -1,5 +1,5 @@
 import { useComment } from "../../hooks/useComment";
-import { PostByCommentId } from "../post/PostByCommentId";
+import { PostTitleByCommentId } from "../post/PostTitleByCommentId";
 import { useEffect } from "react";
 
 export const CommentComponent = () => {
@@ -23,7 +23,7 @@ export const CommentComponent = () => {
       <h2 className="mt-10 text-xl font-bold">元の記事</h2>
       <div className="mt-2">
         {data ? (
-          <PostByCommentId id={String(data.postId)} />
+          <PostTitleByCommentId id={String(data.postId)} />
         ) : (
           <p>記事が見つかりません</p>
         )}
